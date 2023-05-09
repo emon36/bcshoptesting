@@ -1,0 +1,308 @@
+/* vendor registration css code start from here  */
+.vendor-title{
+    color: #336699;
+    border-bottom: 2px solid #336699;
+    padding-bottom: 10px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+.c-main{
+    padding: 5rem 0;
+}
+.pp-desc {
+    color: #333333;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+}
+.pp-desc-bottom{
+    margin-top: 50px;
+}
+ul .item-1{
+    list-style-type: square;
+}
+ul li{
+    color: #000;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+ul.item-2{
+    list-style-type: upper-roman;
+}
+ul.item-1.data-collect {
+    padding-top: 22px;
+}
+.extra-pdesc{
+    font-weight: 600;
+    color: #333;
+}
+
+/* vendor button css  */
+.header-top {
+    padding: 10px 0;
+}
+a.registration-button {
+    font-size: 14px;
+}
+
+.registration-button {
+    display: grid;
+    place-items: center;
+    position: relative;
+    padding: 16px 10px;
+    box-shadow: 0 0 10px 5px rgb(255 10 10 / 40%);
+    color: #999;
+    text-decoration: none;
+    text-transform: uppercase;
+    font: 700 30px consolas;
+    overflow: hidden;
+    border-radius: 5px;
+    background: #ffeb00;
+    color: #ff0000!important;
+}
+
+.registration-button span:nth-child(1) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, #3551c2, #f22923);
+    animation: animate1 2s linear infinite;
+}
+
+@keyframes animate1 {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.registration-button span:nth-child(2) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 3px;
+    background: linear-gradient(to bottom, #3551c2, #f22923);
+    animation: animate2 2s linear infinite;
+    animation-delay: 1s;
+}
+@keyframes animate2 {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+.registration-button span:nth-child(3) {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to left, #3551c2, #f22923);
+    animation: animate3 2s linear infinite;
+}
+
+@keyframes animate3 {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.registration-button span:nth-child(4) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background: linear-gradient(to top, #3551c2, #f22923);
+    animation: animate4 2s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes animate4 {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+@media (min-width: 320px) and (max-width: 767px){
+    .header-left {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 0!important;
+    }
+    .powered-title{
+        padding-top: 20px!important;
+    }
+    .col-md-6.payment-item.payment-cards img{
+            max-width: 36%!important;
+    }
+    .col-md-4.payment-item.payment-cards {
+    margin-top: 18px;
+    }
+    a.btn.btn-primary.cat-wish-btn {
+        padding: 8px 6px;
+        font-size: 12px;
+        margin-top: 20px;
+
+    }
+    .mobile-view-product-width{
+        width:50%!important;
+   }
+
+}
+
+/* popup none css  */
+/* .mfp-bg {
+    display: none;
+}
+.mfp-content {
+    display: none;
+} */
+.select2-container--default .select2-selection--single {
+    background-color: #fff;
+    border: 1px solid #eeeeee!important;
+    border-radius: 4px;
+    min-height: 4.4rem;
+    padding: 0.85rem 2rem;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #999999!important;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    border-color: #999 transparent transparent transparent!important;
+}
+/* vendor registration css code end from here  */
+
+/* mid footer css start from here  */
+.p-cards-img{
+    padding-right: 12px;
+    padding-top: 12px;
+}
+.payment-title{
+    margin: 0;
+}
+.mid-footer {
+    padding: 6.8rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+@media (min-width: 320px) and (max-width: 991px) {
+.mobile-menu li a{
+color: #fff!important;
+}
+}
+
+.col-md-4.payment-item.payment-cards {
+    margin-top: 34px;
+}
+td.product-price {
+    text-align: center;
+}
+
+td.product-stock-status {
+    text-align: center;
+}
+.mhk-banner {
+    margin-left: 22%;
+}
+.product-media{
+    position: relative;
+}
+.discount-tag {
+    background: red;
+    padding: 5px 10px;
+    color: white;
+    font-weight: 700;
+    position: absolute;
+    left: 5%;
+    top: 5%;
+    z-index: 99;
+    font-size: 13px;
+    border-radius: 4px;
+}
+/* component */
+
+.star-rating {
+    border:solid 1px #ccc;
+    display:flex;
+    flex-direction: row-reverse;
+    font-size:1.5em;
+    justify-content:space-around;
+    padding:0 .2em;
+    text-align:center;
+    width:5em;
+}
+
+.star-rating input {
+    display:none;
+}
+
+.star-rating label {
+    color:#ccc;
+    cursor:pointer;
+}
+
+.star-rating :checked ~ label {
+    color:#f90;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color:#fc0;
+}
+
+.rated {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.rated:not(:checked) > input {
+    position:absolute;
+    display: none;
+}
+.rated:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ffc700;
+}
+.rated:not(:checked) > label:before {
+    content: '★ ';
+}
+.rated > input:checked ~ label {
+    color: #ffc700;
+}
+.rated:not(:checked) > label:hover,
+.rated:not(:checked) > label:hover ~ label {
+    color: #deb217;
+}
+.rated > input:checked + label:hover,
+.rated > input:checked + label:hover ~ label,
+.rated > input:checked ~ label:hover,
+.rated > input:checked ~ label:hover ~ label,
+.rated > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+/* explanation */
+
+form.header-search.hs-expanded.hs-round.d-none.d-md-flex.input-wrapper {
+    border-left: 2px solid #336699;
+}
