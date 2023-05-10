@@ -130,14 +130,14 @@
                         <input type="number"  name="preorder_advance_amount" id="preorder_amount" class="form-control">
                     </div>
 
-{{--                    <div class="mb-3 col-md-4">--}}
-{{--                        <div class="form-check">--}}
-{{--                            <input class="form-check-input" type="checkbox" name="attribute_check" value="1" id="attribute_check" onchange="attributeFunction();">--}}
-{{--                            <label class="form-check-label" for="flexCheckDefault">--}}
-{{--                               Does product has attributes?--}}
-{{--                            </label>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
+                    <div class="mb-3 col-md-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="attribute_check" value="1" id="attribute_check" onchange="attributeFunction();">
+                            <label class="form-check-label" for="flexCheckDefault">
+                               Does product has attributes?
+                            </label>
+                        </div>
+                    </div>
 
 {{--                    <div id="example"></div>--}}
 {{--                    <div id="attribute"></div>--}}

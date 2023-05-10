@@ -61,7 +61,7 @@
                                                         @if(isset($galleryImage))
                                                         <img src="{{asset('uploads/images/products/'.$galleryImage)}}"
                                                              data-zoom-image="{{asset('uploads/images/products/'.$galleryImage)}}"
-                                                             alt="Electronics Black Wrist Watch" class="img-fluid" >
+                                                             alt="no image found" class="img-fluid" >
                                                         @else
                                                             <img src="" alt="No Image Found" >
                                                         @endif
@@ -163,13 +163,42 @@
 
                                         <hr class="product-divider">
 
-                                        <div class="product-form product-variation-form product-color-swatch">
+                                        <div class="product-form product-variation-form product-color-swatch product-variations">
                                             @foreach ($product->attributes as $attribute)
-                                                @if ($attribute->attribute == 'Size' || $attribute->attribute == 'Color')
-                                                    <label>{{ $attribute->attribute }}: <span>{{ $attribute->value }}</span> </label>
-                                                    <br/>
+                                                @if ($attribute->attribute == 'Size')
+                                                    <?php
+                                                    $productSize = explode(',', $attribute->value)
+                                                    ?>
+                                                        <div class="form-group">
+                                                            <label for="exampleFormControlSelect1">Size</label>
+                                                            <select class="form-control input-lg "  id="size" name="size">
+                                                                <option value="Select a Size">Select a Size</option>
+                                                                @foreach($productSize as $size)
+                                                                    <option value="{{ $size }}">{{ $size }}</option>
+                                                                @endforeach
+
+                                                            </select>
+                                                        </div>
+                                                @else
                                                 @endif
-                                            @endforeach
+
+                                                    @if ($attribute->attribute == 'Color')
+                                                        <?php
+                                                        $productColor = explode(',', $attribute->value)
+                                                        ?>
+                                                        <div class="form-group">
+                                                            <label for="exampleFormControlSelect1">Color</label>
+                                                            <select class="form-control input-lg"  id="color" name="color">
+                                                                <option value="Select a Color">Select a Color</option>
+                                                                @foreach($productColor as $color)
+                                                                    <option value="{{ $color }}">{{ $color }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    @else
+                                                    @endif
+
+                                        @endforeach
 {{--                                            <div class="d-flex align-items-center product-variations">--}}
 {{--                                                <a href="#" class="color" style="background-color: #ffcc01"></a>--}}
 {{--                                                <a href="#" class="color" style="background-color: #ca6d00;"></a>--}}
@@ -799,12 +828,28 @@
              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
          }
      });
+
+     var selectedSize;
+     var selectedColor;
+
+     // $('#size').on('change', function() {
+     //     selectedSize = $(this).val();
+     //     console.log(selectedSize);
+     //     return selectedSize;
+     // });
+
+     $('#color').on('change', function() {
+         selectedColor = $(this).val();
+     });
+
      $(document).ready(function () {
          $('.addToCart').click(function (e) {
              e.preventDefault();
              var product_id = $(this).closest('.product_data').find('.product_id').val();
              var vendor_id = $(this).closest('.product_data').find('.vendor_id').val();
              var quantity = $(this).closest('.product_data').find('.product_qty').val();
+             var size =  $('#size').val();
+             var color = $('#color').val();
 
              $.ajax({
                  method: "POST",
@@ -814,13 +859,19 @@
                      'product_id' : product_id,
                      'vendor_id' : vendor_id,
                      'quantity' : quantity,
+                     'size' : size,
+                     'color' : color
                  },
 
                  success:function (response) {
                      toastr.success(response.status);
                      let total = response.cartCount
                      $('.cart-count').html(total);
-                 }
+                 },
+                 error:function (response) {
+                     if(response.status == 400)
+                         toastr.error('Please Select Size,Colors');
+                 },
 
              });
 

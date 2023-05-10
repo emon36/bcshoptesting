@@ -33,8 +33,10 @@
                             <tr>
                                 <th class="product-name"><span>Product</span></th>
                                 <th></th>
-                                <th class="product-price"><span>Price</span></th>
-                                <th class="product-quantity"><span>Quantity</span></th>
+                                <th class="product-price" style="text-align: center"><span>Price</span></th>
+                                <th><span>Size</span></th>
+                                <th><span>Color</span></th>
+                                <th class="product-quantity" style="text-align: center"><span>Quantity</span></th>
                                 <th class="product-subtotal"><span>Subtotal</span></th>
                             </tr>
                             </thead>
@@ -70,6 +72,8 @@
                                 </td>
 
                                 <td class="product-price"><span class="amount">{{$cart->product->current_selling_price / 100}}</span></td>
+                                <td><span>{{$cart->size}}</span></td>
+                                <td><span>{{$cart->color}}</span></td>
                                     <td class="product-quantity">
                                         <div class="input-group">
                                             <input type="hidden" name="id[]" value="{{$cart->id}}">

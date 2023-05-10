@@ -120,20 +120,22 @@
 
                     </div>
 
+
                     <div class="mb-3 col-md-3" id="preorder_div">
                         <label  class="form-label">Pre-Order Amount</label>
                         <input type="number"  name="preorder_advance_amount" value="{{$product->preorder_advance_amount}}" id="preorder_amount" class="form-control">
                     </div>
 
+
                     @if($product->has_attributes == 1)
                     <div class="row">
                         <div class="mb-3 col-md-12">
                             <div class="product-attribute">
-                                @foreach($product->attributes as $attribute)
+                                @foreach($product->attributes as $aKey => $attribute)
                                 <div class="row">
                                     <div class="col-md-5">
                                         <label  class="form-label">Select Attribute</label>
-                                        <select class="form-control" name="attribute[]" id="attribute">
+                                        <select class="form-control" name="attribute[]" id="attribute" readonly="">
                                             @foreach($allAttributes as $option)
                                                 <option value="{{$option->title}}" {{ $option->title == $attribute->attribute ? 'selected' : '' }}>{{$option->title}}</option>
                                             @endforeach
@@ -141,10 +143,8 @@
                                     </div>
                                     <div class="col-md-5">
                                         <label  class="form-label">Attribute Value</label>
-                                        <input type="text" class="form-control" name="value[]" id="value"  value="{{ $attribute->value }}" required>
-                                    </div>
-                                    <div class="col-md-2 mt-3">
-                                        <a class="btn btn-primary" id="addBtn">Add More</a>
+                                        <input type="text" class="form-control tagifyValues" name="value[]" id="value"  value="{{ $attribute->value }}" required>
+
                                     </div>
                                 </div>
                                 @endforeach
@@ -209,10 +209,13 @@
             $('.primary_select').niceSelect();
         });
 
-        var input = document.querySelector('input[name="value[]"]');
-
-        // initialize Tagify on the above input node reference
-        new Tagify(input)
+        var input = $('.tagifyValues')
+        console.log(input);
+        for(let i=0 ; i<= input.length; i++)
+        {
+            console.log(input[i])
+            new Tagify(input[i])
+        }
 
 
         $('#addBtn').on('click', function() {
@@ -230,9 +233,7 @@
             <label class="form-label">Attribute Value</label>
             <input type="text" class="form-control" name="value[]">
           </div>
-          <div class="col-md-2 mt-3">
-            <a class="btn btn-danger deleteBtn"> <i class="mdi mdi-trash-can"></i></a>
-          </div>
+
         </div>`;
 
             $('.product-attribute').append(newAttribute);

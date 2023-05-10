@@ -59,6 +59,7 @@ class ProductController extends Controller
     {
 
 
+
         if($request->unit_weight_helper == 'KGs'){
             $request->unit_weight =  $this->toGram($request->unit_weight);
         }
@@ -91,20 +92,28 @@ class ProductController extends Controller
         if ($request->has('attribute_check')){
             $product->has_attributes = $request->attribute_check;
             $product->update();
-            $attributes = $request->input('attribute');
-            $values = $request->input('value');
-            for ($i = 0; $i < count($attributes); $i++) {
-                $attribute = $attributes[$i];
-                $value = json_decode($values[$i]);
 
-                foreach ($value as $val) {
-                    $productAttribute = new ProductAttribute;
-                    $productAttribute->product_id = $product->id;
-                    $productAttribute->attribute = $attribute;
-                    $productAttribute->value = $val->value;
-                    $productAttribute->save();
-                }
+            $attributes = request('attribute');
+            $values = request('value');
+
+            $productAttributes = [];
+
+            foreach ($attributes as $index => $attribute) {
+                $valuesArray = json_decode($values[$index]);
+
+                $valueString = implode(',', array_map(function($value) {
+                    return $value->value;
+                }, $valuesArray));
+
+                $productAttributes[] = [
+                    'attribute' => $attribute,
+                    'value' => $valueString,
+                    'product_id' => $product->id
+                ];
             }
+
+            ProductAttribute::insert($productAttributes);
+
 
         }
 
@@ -288,6 +297,34 @@ class ProductController extends Controller
             }
         }
 
+        if ($request->has('value'))
+        {
+            $attributes = request('attribute');
+            $values = request('value');
+
+            // Delete existing product attributes
+            ProductAttribute::where('product_id', $product->id)->delete();
+
+            $productAttributes = [];
+
+            // Add updated product attributes to the array
+            foreach ($attributes as $index => $attribute) {
+                $valuesArray = json_decode($values[$index]);
+
+                $valueString = implode(',', array_map(function($value) {
+                    return $value->value;
+                }, $valuesArray));
+
+                $productAttributes[] = [
+                    'attribute' => $attribute,
+                    'value' => $valueString,
+                    'product_id' => $product->id
+                ];
+            }
+
+            // Insert updated product attributes to the database
+            ProductAttribute::insert($productAttributes);
+        }
 
         $categoryId = $request->category_id;
         $productCategory = ProductCategory::where('product_id', $id)->first();

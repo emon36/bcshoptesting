@@ -24,7 +24,17 @@ class CartController extends Controller
             $product_id = $request->input('product_id');
             $vendor_id = $request->input('vendor_id');
             $quantity = $request->input('vendor_id');
+            $size = $request->input('size');
+
+            $color = $request->input('color');
             $guestUserId = Cookie::get('__cart');
+
+            if ($size == 'Select a Size'){
+                return response()->json(['message' => 'Please Select a Size','status' => 400], 400);
+            }
+            if ($color == 'Select a Color'){
+                return response()->json(['message' => 'Please Select a Color','status' => 400], 400);
+            }
 
             $productExist = GuestCart::where('product_id', $product_id)->where('guest_user_id', $guestUserId)->first();
             if ($productExist) {
@@ -37,6 +47,8 @@ class CartController extends Controller
                 $cartItem->vendor_id = $vendor_id;
                 $cartItem->guest_user_id = $guestUserId;
                 $cartItem->quantity = $quantity;
+                $cartItem->size = $size;
+                $cartItem->color = $color;
                 $cartItem->save();
 
                 $cartCount = GuestCart::where('guest_user_id', $guestUserId)->get()->count();
@@ -51,8 +63,17 @@ class CartController extends Controller
             $vendor_id = $request->input('vendor_id');
             $quantity = $request->input('quantity');
             $customer_id = session()->get('user')->id;
+            $size = $request->input('size');
+            $color = $request->input('color');
 
-            $productExist = Cart::where('product_id', $product_id)->where('customer_id', $customer_id)->first();
+            if ($size == 'Select a Size'){
+                return response()->json(['message' => 'Please Select a Size','status' => 400], 400);
+            }
+            if ($color == 'Select a Color'){
+                return response()->json(['message' => 'Please Select a Color','status' => 400], 400);
+            }
+
+            $productExist = Cart::where('product_id', $product_id)->where('size', $size)->where('color', $color)->where('customer_id', $customer_id)->first();
 
             if ($productExist) {
                 $exists = Cart::find($productExist->id);
@@ -65,6 +86,8 @@ class CartController extends Controller
                 $cartItem->vendor_id = $vendor_id;
                 $cartItem->customer_id = $customer_id;
                 $cartItem->quantity = $quantity;
+                $cartItem->size = $size;
+                $cartItem->color = $color;
                 $cartItem->save();
             }
 

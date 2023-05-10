@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('vendor_id');
             $table->string('quantity');
             $table->integer('unit_price');
+            $table->string('size')->nullable();
+            $table->string('color')->nullable();
             $table->string('subtotal');
             $table->timestamps();
         });

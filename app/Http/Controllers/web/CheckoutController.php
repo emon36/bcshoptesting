@@ -114,6 +114,8 @@ class CheckoutController extends Controller
                 $orderDetails->product_id = $cart->product_id;
                 $orderDetails->vendor_id = $cart->vendor_id;
                 $orderDetails->quantity = $cart->quantity;
+                $orderDetails->size = $cart->size;
+                $orderDetails->color = $cart->color;
                 $orderDetails->unit_price = $cart->product->current_selling_price;
                 if(Session::has('coupon'))
                 {
@@ -177,21 +179,21 @@ class CheckoutController extends Controller
                 $order->save();
 
 
-//                $commission_rate = Vendor::where('id', $order->vendor_id)->first();
-//                $commissionAmount = $order->subtotal * ($commission_rate->commission / 100);
-//                $orderCommission = new OrderCommission();
-//                $orderCommission->order_id = $order->id;
-//                $orderCommission->vendor_id = $cart->vendor_id;
-//                $orderCommission->commission_amount = $commissionAmount;
-//                $orderCommission->save();
-//
-//                $vendorAccounts = VendorAccounts::where('id', $order->vendor_id)->first();
-//                $totalEarning = $vendorAccounts->total_earning + $order->subtotal;
-//                $vendorAccounts->total_earning = $totalEarning;
-//                $vendorAccounts->total_commission_given += $commissionAmount;
-//                $vendorAccounts->update();
-//                $vendorAccounts->payment_due = $vendorAccounts->total_earning - $vendorAccounts->total_commission_given;
-//                $vendorAccounts->update();
+                $commission_rate = Vendor::where('id', $order->vendor_id)->first();
+                $commissionAmount = $order->subtotal * ($commission_rate->commission / 100);
+                $orderCommission = new OrderCommission();
+                $orderCommission->order_id = $order->id;
+                $orderCommission->vendor_id = $cart->vendor_id;
+                $orderCommission->commission_amount = $commissionAmount;
+                $orderCommission->save();
+
+                $vendorAccounts = VendorAccounts::where('id', $order->vendor_id)->first();
+                $totalEarning = $vendorAccounts->total_earning + $order->subtotal;
+                $vendorAccounts->total_earning = $totalEarning;
+                $vendorAccounts->total_commission_given += $commissionAmount;
+                $vendorAccounts->update();
+                $vendorAccounts->payment_due = $vendorAccounts->total_earning - $vendorAccounts->total_commission_given;
+                $vendorAccounts->update();
 
 
                 $orderDetails = new OrderDetails();

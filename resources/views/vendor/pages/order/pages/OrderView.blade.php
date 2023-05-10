@@ -44,7 +44,7 @@
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$orderDetail->products->title}}</td>
                                     <td> <img src="{{asset('uploads/images/products/'.$orderDetail->products->fImage->image)}}" height="100" width="100"> </td>
-                                    <td>Quantity: {{$orderDetail->quantity}}</td>
+                                    <td>Quantity: {{$orderDetail->quantity}} <br> Size: {{$orderDetail->size}} <br> Color: {{$orderDetail->color}}
                                     <td>{{$orderDetail->unit_price/100}}</td>
                                     <td>{{$orderDetail->unit_price/100 * $orderDetail->quantity }}</td>
                                 </tr>

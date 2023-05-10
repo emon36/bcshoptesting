@@ -614,7 +614,7 @@
                         @foreach($recentProducts as $product)
                             <div class="product-wrap product text-center">
                                 <figure class="product-media">
-                                    @if($product->discount != NULL)
+                                    @if($product->discount)
                                         <div class="discount-tag">
                                             <span>{{$product->discount}}%</span>
                                         </div>
@@ -637,7 +637,7 @@
                                     </h4>
 
                                     <div class="product-price">
-                                        @if($product->discount != NULL)
+                                        @if($product->discount)
                                             <ins class="new-price">{{$product->current_selling_price/100}}৳</ins>
                                             <del class="old-price">{{$product->old_price/100}}৳</del>
                                         @else
@@ -1014,7 +1014,7 @@
                         @foreach($popularProductsRand as $product)
                             <div class="product-wrap product text-center">
                                 <figure class="product-media">
-                                    @if($product->discount != NULL)
+                                    @if($product->discount)
                                         <div class="discount-tag">
                                             <span>{{$product->discount}}%</span>
                                         </div>
@@ -1037,7 +1037,7 @@
                                     </h4>
 
                                     <div class="product-price">
-                                        @if($product->discount != NULL)
+                                        @if($product->discount)
                                             <ins class="new-price">{{$product->current_selling_price/100}}</ins>
                                             <del class="old-price">{{$product->old_price/100}}</del>
                                         @else
@@ -1055,7 +1055,7 @@
                         @foreach($featureProductsRand as $product)
                             <div class="product-wrap product text-center">
                                 <figure class="product-media">
-                                    @if($product->discount != NULL)
+                                    @if($product->discount)
                                         <div class="discount-tag">
                                             <span>{{$product->discount}}%</span>
                                         </div>
@@ -1197,7 +1197,7 @@
                                         <div class="product-col col-lg-3 col-sm-4 mb-4 mobile-view-product-width">
                                             <div class="product-wrap product text-center">
                                                 <figure class="product-media">
-                                                    @if($item->product->discount != NULL)
+                                                    @if($item->product->discount  ?? false)
                                                     <div class="discount-tag">
                                                         <span>{{$item->product->discount}}%</span>
                                                     </div>
@@ -1220,7 +1220,7 @@
                                                     </h4>
 
                                                     <div class="product-price">
-                                                        @if($item->product->discount != NUll)
+                                                        @if($item->product->discount  ?? false)
                                                             <ins class="new-price">{{$item->product->current_selling_price/100}}৳</ins>
                                                             <del class="old-price">{{$item->product->old_price/100}}৳</del>
                                                         @else
