@@ -33,4 +33,5 @@ class AttributeController extends Controller
         $attribute = Attribute::where('id', $request->id)->first();
         return view('admin.pages.product.widgets.SelectedAttribute', ['attribute' => $attribute]);
     }
+
 }

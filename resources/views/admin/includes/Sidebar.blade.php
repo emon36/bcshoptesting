@@ -80,6 +80,21 @@
                     </ul>
                 </div>
             </li>
+{{--            <li class="side-nav-item">--}}
+{{--                <a data-bs-toggle="collapse" href="#sidebarAttribute" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link">--}}
+{{--                    <i class="uil-store"></i>--}}
+{{--                    <span> Product Attribute </span>--}}
+{{--                    <span class="menu-arrow"></span>--}}
+{{--                </a>--}}
+{{--                <div class="collapse" id="sidebarAttribute">--}}
+{{--                    <ul class="side-nav-second-level">--}}
+{{--                        <li>--}}
+{{--                            <a href="{{route('InAdmin.Attribute.CreatePage')}}">Add Attribute </a>--}}
+{{--                        </li>--}}
+{{--                        --}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--            </li>--}}
 
             <li class="side-nav-item">
                 <a data-bs-toggle="collapse" href="#sidebarEmail" aria-expanded="false" aria-controls="sidebarEmail" class="side-nav-link">
