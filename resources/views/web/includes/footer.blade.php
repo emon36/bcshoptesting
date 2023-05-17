@@ -89,76 +89,63 @@
 
 
         <div class="mid-footer">
-            <div class="row payment-items">
-                <div class="col-md-4 payment-item payment-cards">
-                    <h6 class="payment-title powered-title">Accepted Cards</h6>
-                    <img src="{{asset('front-end/assets/images/payments/visa.png')}}" class="img-fluid p-cards-img">
-                    <img src="{{asset('front-end/assets/images/payments/mastercard.png')}}" class="img-fluid p-cards-img">
-                    <img src="{{asset('front-end/assets/images/payments/diners-club-international.png')}}" class="img-fluid p-cards-img">
-                    <img src="{{asset('front-end/assets/images/payments/union.png')}}" class="img-fluid p-cards-img">
-                    <img src="{{asset('front-end/assets/images/payments/american-express.png')}}" class="img-fluid">
-                    <img src="{{asset('front-end/assets/images/payments/dbbl.png')}}" class="img-fluid p-cards-img">
+            <div class="TitleRowWrapper">
+                <div class="TitleRowLeft">
+                    <h3>Payment Channels</h3>
                 </div>
-                <div class="col-md-4 payment-item payment-cards">
-                    <h6 class="payment-title powered-title">Mobile Banking</h6>
-                    <img src="{{asset('front-end/assets/images/payments/bkash.png')}}" class="img-fluid p-cards-img">
-                    <img src="{{asset('front-end/assets/images/payments/nagad.png')}}" class="img-fluid p-cards-img">
-                    <img src="{{asset('front-end/assets/images/payments/rocket.jpg')}}" class="img-fluid p-cards-img">
-                    <img src="{{asset('front-end/assets/images/payments/upay.png')}}" class="img-fluid p-cards-img">
-                    <img src="{{asset('front-end/assets/images/payments/tap.png')}}" class="img-fluid">
-                    <img src="{{asset('front-end/assets/images/payments/sureCash.png')}}" class="img-fluid p-cards-img">
-                    <img src="{{asset('front-end/assets/images/payments/mCash.png')}}" class="img-fluid p-cards-img">
-                    <img src="{{asset('front-end/assets/images/payments/myCash.png')}}" class="img-fluid p-cards-img">
-                    <img src="{{asset('front-end/assets/images/payments/qCash.png')}}" class="img-fluid p-cards-img">
-                    <img src="{{asset('front-end/assets/images/payments/tapNpay.png')}}" class="img-fluid p-cards-img">
+                <div class="TitleRowLeft">
+                    <span>Verified By</span>
+                    <img class="FooterSslCommerceLogo" src="{{asset('front-end/assets/images/payments/ssl.jpg')}}" alt="" class="img-fluid">
                 </div>
-                <div class="col-md-4 payment-item payment-cards">
-                    <h6 class="payment-title powered-title">Sponsors</h6>
-                    <img src="{{asset('front-end/assets/images/payments/v1.png')}}" class="img-fluid p-cards-img">
-                    <img src="{{asset('front-end/assets/images/payments/v2.png')}}" class="img-fluid p-cards-img">
-                    <img src="{{asset('front-end/assets/images/payments/v3.png')}}" class="img-fluid p-cards-img">
-                    <img src="{{asset('front-end/assets/images/payments/v4.png')}}" class="img-fluid">
-                    <img src="{{asset('front-end/assets/images/payments/v5.png')}}" class="img-fluid">
-                </div>
-                <div class="col-md-4 payment-item payment-cards">
-                    <h6 class="payment-title powered-title">Internet Banking</h6>
-                    <img src="{{asset('front-end/assets/images/payments/ab.png')}}" class="img-fluid p-cards-img">
-                    <img src="{{asset('front-end/assets/images/payments/bangla-drive.png')}}" class="img-fluid p-cards-img">
-                    <img src="{{asset('front-end/assets/images/payments/bdbl.png')}}" class="img-fluid p-cards-img">
-                    <img src="{{asset('front-end/assets/images/payments/brack.png')}}" class="img-fluid">
-                    <img src="{{asset('front-end/assets/images/payments/cellfin.png')}}" class="img-fluid">
-                    <img src="{{asset('front-end/assets/images/payments/city.png')}}" class="img-fluid">
-                    <img src="{{asset('front-end/assets/images/payments/ebl.png')}}" class="img-fluid">
-                    <img src="{{asset('front-end/assets/images/payments/islami.png')}}" class="img-fluid">
-                    <img src="{{asset('front-end/assets/images/payments/likeIslami.png')}}" class="img-fluid">
-                    <img src="{{asset('front-end/assets/images/payments/madhumoti.png')}}" class="img-fluid">
-                    <img src="{{asset('front-end/assets/images/payments/meghna.png')}}" class="img-fluid">
-                    <img src="{{asset('front-end/assets/images/payments/mtb.png')}}" class="img-fluid">
-                    <img src="{{asset('front-end/assets/images/payments/pMoney.png')}}" class="img-fluid">
-                    <img src="{{asset('front-end/assets/images/payments/sb.png')}}" class="img-fluid">
-                    <img src="{{asset('front-end/assets/images/payments/woori.png')}}" class="img-fluid">
-                </div>
-                <div class="col-md-4 payment-item payment-cards">
-                    <h6 class="payment-title powered-title">E-Wallet</h6>
-                    <img src="{{asset('front-end/assets/images/payments/eIpay.png')}}" class="img-fluid p-cards-img">
-                    <img src="{{asset('front-end/assets/images/payments/eDmoney.png')}}" class="img-fluid p-cards-img">
-                    <img src="{{asset('front-end/assets/images/payments/eRainbow.png')}}" class="img-fluid p-cards-img">
-                </div>
+            </div>
 
-                <div class="col-md-4 payment-item payment-cards">
-                    <div class="row">
-                        <div class="col-md-6 payment-item payment-cards">
-                            <h6 class="payment-title powered-title">Powered by ICT Division</h6>
-                            <img src="{{asset('front-end/assets/images/payments/ictMain.png')}}" class="img-fluid p-cards-img">
-                        </div>
-                        <div class="col-md-6 payment-item payment-cards">
-                            <h6 class="payment-title powered-title">Supported by idea Project</h6>
-                            <img src="{{asset('front-end/assets/images/payments/idea.png')}}" class="img-fluid p-cards-img">
-                        </div>
-                    </div>
-                </div>
+            <div class="AcceptedCardRow">
+                <p  class="PaymentTitle">Accepted Cards</p>
+                <img src="{{asset('front-end/assets/images/payments/visa.png')}}" class="img-fluid PaymentsChannelImage" alt="">
+                <img src="{{asset('front-end/assets/images/payments/mastercard.png')}}" class="img-fluid PaymentsChannelImage" alt="">
+                <img src="{{asset('front-end/assets/images/payments/american-express.png')}}" class="img-fluid PaymentsChannelImage" alt="">
+                <img src="{{asset('front-end/assets/images/payments/union.png')}}" class="img-fluid PaymentsChannelImage" alt="">
+                <img src="{{asset('front-end/assets/images/payments/diners-club-international.png')}}" class="img-fluid PaymentsChannelImage" alt="">
+                <img src="{{asset('front-end/assets/images/payments/dbbl.png')}}" class="img-fluid PaymentsChannelImage" alt="">
+            </div>
+
+            <div class="AcceptedCardRow">
+                <p  class="PaymentTitle">Mobile Banking</p>
+                <img src="{{asset('front-end/assets/images/payments/bkash.png')}}" class="img-fluid PaymentsChannelImage" alt="">
+                <img src="{{asset('front-end/assets/images/payments/nagad.png')}}" class="img-fluid PaymentsChannelImage" alt="">
+                <img src="{{asset('front-end/assets/images/payments/rocket.png')}}" class="img-fluid PaymentsChannelImage" alt="">
+                <img src="{{asset('front-end/assets/images/payments/upay.png')}}" class="img-fluid PaymentsChannelImage" alt="">
+                <img src="{{asset('front-end/assets/images/payments/tap.png')}}" class="img-fluid PaymentsChannelImage" alt="">
+                <img src="{{asset('front-end/assets/images/payments/sureCash.png')}}" class="img-fluid PaymentsChannelImage" alt="">
+                <img src="{{asset('front-end/assets/images/payments/mCash.png')}}" class="img-fluid PaymentsChannelImage" alt="">
+                <img src="{{asset('front-end/assets/images/payments/myCash.png')}}" class="img-fluid PaymentsChannelImage" alt="">
+                <img src="{{asset('front-end/assets/images/payments/qCash.png')}}" class="img-fluid PaymentsChannelImage" alt="">
+                <img src="{{asset('front-end/assets/images/payments/tapNpay.png')}}" class="img-fluid PaymentsChannelImage" alt="">
+            </div>
+
+            <div class="AcceptedCardRow">
+                <p  class="PaymentTitle">Internet Banking</p>
+                <img src="{{asset('front-end/assets/images/payments/city.png')}}" class="img-fluid PaymentsChannelImage" alt="">
+                <img src="{{asset('front-end/assets/images/payments/brack.png')}}" class="img-fluid PaymentsChannelImage" alt="">
+                <img src="{{asset('front-end/assets/images/payments/bdbl.png')}}" class="img-fluid PaymentsChannelImage" alt="">
+                <img src="{{asset('front-end/assets/images/payments/dbbl.png')}}" class="img-fluid PaymentsChannelImage" alt="">
+                <img src="{{asset('front-end/assets/images/payments/ebl.png')}}" class="img-fluid PaymentsChannelImage" alt="">
+                <img src="{{asset('front-end/assets/images/payments/mtb.png')}}" class="img-fluid PaymentsChannelImage" alt="">
+                <img src="{{asset('front-end/assets/images/payments/meghna.png')}}" class="img-fluid PaymentsChannelImage" alt="">
+                <img src="{{asset('front-end/assets/images/payments/sb.png')}}" class="img-fluid PaymentsChannelImage" alt="">
+                <img src="{{asset('front-end/assets/images/payments/madhumoti.png')}}" class="img-fluid PaymentsChannelImage" alt="">
+                <img src="{{asset('front-end/assets/images/payments/islami.png')}}" class="img-fluid PaymentsChannelImage" alt="">
+                <img src="{{asset('front-end/assets/images/payments/likeIslami.png')}}" class="img-fluid PaymentsChannelImage" alt="">
 
             </div>
+
+            <div class="AcceptedCardRow">
+                <p  class="PaymentTitle">E Wallet</p>
+                <img src="{{asset('front-end/assets/images/payments/eDmoney.png')}}" class="img-fluid PaymentsChannelImage" alt="">
+                <img src="{{asset('front-end/assets/images/payments/eIpay.png')}}" class="img-fluid PaymentsChannelImage" alt="">
+        
+            </div>
+
         </div>
 
 

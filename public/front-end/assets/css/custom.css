@@ -306,3 +306,45 @@ td.product-stock-status {
 form.header-search.hs-expanded.hs-round.d-none.d-md-flex.input-wrapper {
     border-left: 2px solid #336699;
 }
+
+/* Mid Footer css code start from here  */
+.TitleRowWrapper{
+    border-bottom: 2px solid #336699;
+}
+.FooterSslCommerceLogo{
+    height: auto;
+    width: 150px;
+}
+.TitleRowWrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.PaymentsChannelImage{
+    margin-right: 10px;
+}
+.PaymentTitle{
+    margin: 10px 0;
+    font-weight: 600;
+    color: black;
+}
+.Top20Image{
+    height: 130px!important;
+}
+.product.product-widget.bb-no.col-md-2.col-lg-2 {
+    display: flex;
+    flex-direction: column;
+}
+.product.product-widget.bb-no.col-md-2.col-lg-2 {
+    padding: 0 10px;
+    text-align: center;
+}
+.ratings-container {
+    justify-content: center;
+}
+.product.bb-no.col-md-2.col-lg-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+}

@@ -158,6 +158,7 @@ class CheckoutController extends Controller
 
 
             foreach ($carts as $cart) {
+
                 $order = new Order();
                 $order->order_number = mt_rand(1000000000, 9999999999);
                 if(Session::has('coupon'))

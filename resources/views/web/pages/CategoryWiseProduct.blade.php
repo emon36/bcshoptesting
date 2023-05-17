@@ -268,7 +268,13 @@
                         <div class="product-wrap">
                             <div class="product text-center">
                                 <figure class="product-media">
-                                    <a href="product-default.html">
+                                    @if($product->product->discount)
+                                        <div class="discount-tag">
+                                            <span>{{$product->product->discount}}%</span>
+                                        </div>
+                                    @else
+                                    @endif
+                                    <a href="{{route('productSingleView',$product->product->slug)}}">
                                         <?php
                                         $productImage = \App\Models\ProductImage::where('product_id', $product->product->id)->where('position_key', 1)->first();
                                         ?>
@@ -294,7 +300,7 @@
                                 </figure>
                                 <div class="product-details">
                                     <div class="product-cat">
-                                        <a href="shop-banner-sidebar.html">{{$product->category->title}}</a>
+                                        <a href="">{{$product->category->title}}</a>
                                     </div>
                                     <h3 class="product-name">
                                         <a href="{{route('productSingleView',$product->product->slug)}}">{{$product->product->title}}</a>
@@ -308,7 +314,12 @@
 {{--                                    </div>--}}
                                     <div class="product-pa-wrapper">
                                         <div class="product-price">
-                                          {{$product->product->current_selling_price/100}}
+                                            @if($product->product->discount != NULL)
+                                                <ins class="new-price">{{$product->product->current_selling_price/100}}৳</ins>
+                                                <del class="old-price">{{$product->product->old_price/100}}৳</del>
+                                            @else
+                                                <ins class="new-price">{{$product->product->current_selling_price/100}}৳</ins>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

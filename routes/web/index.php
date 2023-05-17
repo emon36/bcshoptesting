@@ -14,6 +14,7 @@ use App\Http\Controllers\web\ShopController;
 use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\web\ReviewController;
 use App\Http\Controllers\web\PreOrderController;
+use App\Http\Controllers\web\BlogController;
 
 Route::group(['middleware' => 'cart'], function(){
     Route::get('/cart', [CartController::class, 'CartPage']);
@@ -70,6 +71,9 @@ Route::group(['middleware' => 'cart'], function(){
     Route::post('/contact', [HomeController::class, 'contact'])->name('Contact');
     Route::get('/return/policy', [HomeController::class, 'returnPolicy'])->name('Return.Policy');
     Route::get('/shipping/policy', [HomeController::class, 'shippingPolicy'])->name('Shipping.Policy');
+
+    Route::get('blog/{id}/view', [BlogController::class, 'singleView'])->name('Blog.View');
+    Route::get('blogs', [BlogController::class, 'blogList'])->name('Blog.Page');
 
     Route::get('/vendor/shop/list', [HomeController::class, 'vendorList'])->name('Vendor.List');
     Route::get('/vendor/shop/{url}/details', [HomeController::class, 'vendorDetails'])->name('Vendor.Details');

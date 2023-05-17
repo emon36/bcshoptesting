@@ -6,6 +6,7 @@
                 $announcement = \App\Models\Annoucment::where('id', 1)->first();
                 ?>
                 <p class="welcome-msg" style="margin:0!important; color: red; font-weight: bold">
+
                 {{$announcement->text}}
                 </p>
             </div>
@@ -13,7 +14,7 @@
 
                 <!-- End of Dropdown Menu -->
                 <span class="divider d-lg-show"></span>
-{{--                <a href="" class="d-lg-show">Blog</a>--}}
+                <a href="{{route('Blog.Page')}}" class="d-lg-show">Blog</a>
                 <a href="{{route('Contact.Us')}}" class="d-lg-show">Contact Us</a>
 
                 @if(session()->get('user') == NULL)

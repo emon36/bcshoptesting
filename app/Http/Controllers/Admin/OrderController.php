@@ -15,7 +15,7 @@ class OrderController extends Controller
 {
     public function orderIndexPage()
     {
-        $orders = Order::with('shipping', 'orderDetails', 'vendor')->get();
+        $orders = Order::with('shipping', 'orderDetails', 'vendor')->latest()->get();
 
         return view('admin.pages.order.pages.IndexOrder', ['orders' => $orders]);
     }

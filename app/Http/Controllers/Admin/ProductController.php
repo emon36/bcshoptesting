@@ -58,7 +58,19 @@ class ProductController extends Controller
     public function productCreateProcess(Request $request)
     {
 
-
+        $validatedData = $request->validate([
+            'vendor_id' => 'required|numeric',
+            'title' => 'required|string|max:255',
+            'sku' => 'required|string|max:255',
+            'description' => 'required|string',
+            'current_purchase_price' => 'required|numeric',
+            'current_selling_price' => 'required|numeric',
+            'current_stock' => 'required|numeric',
+            'preorder_advance_amount' => 'nullable|numeric',
+            'category_id' => 'required|numeric',
+            'featured_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
 
         if($request->unit_weight_helper == 'KGs'){
             $request->unit_weight =  $this->toGram($request->unit_weight);

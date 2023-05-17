@@ -25,6 +25,7 @@ Route::group([
     require __DIR__.'/attribute.php';
     require __DIR__.'/ticket.php';
     require __DIR__.'/coupon.php';
+    require __DIR__ . '/blog.php';
 
 });
 

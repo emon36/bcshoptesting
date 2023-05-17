@@ -14,12 +14,22 @@
                 <form action="{{route('InAdmin.Product.CreateProcess')}}" id="productForm" method="POST" enctype="multipart/form-data">
                     @csrf
 
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     <div class="row">
                         <div class="mb-3 col-md-6">
                             <label  class="form-label">Select a Shop</label>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <select name="vendor_id" class="primary_select" required>
+                            <select name="vendor_id" class="primary_select" >
                                 @if($vendors)
                                         @foreach($vendors as $vendor)
                                             <option value="{{$vendor->id}}">{{$vendor->shop_name}}</option>
@@ -32,11 +42,11 @@
                     <div class="row g-2">
                         <div class="mb-3 col-md-4" id="title_div">
                             <label  class="form-label">Title</label>
-                            <input type="text" name="title" class="form-control" required>
+                            <input type="text" name="title" value="{{old('title')}}" required class="form-control" >
                         </div>
                         <div class="mb-3 col-md-4">
                             <label class="form-label">Category</label>
-                            <select name="category_id" class="form-control" required>
+                            <select name="category_id" class="form-control"  required>
                                 @foreach($categories as $category)
                                     <option value="{{$category->id}}"> {{$category->title}}</option>
                                 @endforeach
@@ -53,7 +63,7 @@
 
                     <div class="mb-3">
                         <label class="form-label">Description</label>
-                        <textarea class="form-control" id="editor" rows="5" name="description"></textarea>
+                        <textarea class="form-control" id="editor" rows="5"  name="description">{{old('description')}}</textarea>
                     </div>
 
                     <div class="row">
@@ -71,7 +81,7 @@
                                     <label  class="form-label float-end" >Weight</label>
                                 </div>
                                 <div class="col-md-4">
-                                    <input type="number" value="0" name="unit_weight" required class="form-control">
+                                    <input type="number" value="0" name="unit_weight"  required class="form-control">
                                 </div>
                                 <div class="col-md-4">
                                     <select name="unit_weight_helper" class="primary_select" required>
@@ -88,17 +98,17 @@
 
                         <div class="mb-3 col-md-4">
                             <label  class="form-label">Purchase Price</label>
-                            <input type="text" name="current_purchase_price" required class="form-control">
+                            <input type="number" name="current_purchase_price" value="{{old('current_purchase_price')}}" required class="form-control">
                         </div>
 
                         <div class="mb-3 col-md-4">
                             <label  class="form-label">Selling Price</label>
-                            <input type="text" name="current_selling_price" required class="form-control">
+                            <input type="number" name="current_selling_price" value="{{old('current_selling_price')}}" required class="form-control">
                         </div>
 
                         <div class="mb-3 col-md-4">
                             <label  class="form-label">Current Stock</label>
-                            <input type="text" name="current_stock" required class="form-control">
+                            <input type="number" name="current_stock" value="{{old('current_stock')}}" required class="form-control">
                         </div>
 
                     </div>
@@ -172,7 +182,7 @@
                     <div class="row">
                         <div class="mb-3 col-md-6">
                             <label  class="form-label">Featured Image</label>
-                            <input type="file" name="featured_image" class="form-control" required onchange="loadFile(event)" >
+                            <input type="file" name="featured_image" class="form-control"  onchange="loadFile(event)" >
                             <img id="output" class="mt-2" width="100" height="100"/>
                         </div>
                         <div class="mb-3 col-md-6">
@@ -311,10 +321,6 @@
         }
 
         document.querySelector('#file-input').addEventListener("change", previewImages);
-
-
-
-
 
     </script>
 @endsection

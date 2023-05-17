@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\web;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Contact;
 use App\Models\HomeBlock;
+use App\Models\OrderDetails;
 use App\Models\Page;
 use App\Models\Product;
 use App\Models\ProductCategory;
@@ -13,6 +15,8 @@ use App\Models\ProductImage;
 use App\Models\Vendor;
 use App\Services\Helpers\Converter;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class HomeController extends Controller
 {
@@ -82,18 +86,30 @@ class HomeController extends Controller
 //            ->take(10)
 //            ->get();
 
+        $buyProductLists = OrderDetails::select('product_id',DB::raw('count(*) as total'))
+            ->groupBy('product_id')
+            ->orderBy('total', 'DESC')
+            ->get();
+
+
+        $mostSellingProduct = Product::whereIn('id', $buyProductLists->pluck('product_id'))
+            ->take(12)->get();
+
+        $blogs = Blog::where('status', 'Publish')->latest()->take(4)->get();
+
         $recentProducts = Product::where('status', 'Approved')->where('existence', 'Active')->orderBy('id', 'desc')->take(10)->get();
         $popularProductsRand = Product::where('status', 'Approved')->where('existence', 'Active')->inRandomOrder()->take(10)->get();
         $featureProductsRand = Product::where('status', 'Approved')->where('existence', 'Active')->inRandomOrder()->take(10)->get();
 
 
         return view('web.pages.Home', [
+            'blogs' => $blogs,
+            'mostSellingProduct' => $mostSellingProduct,
             'homeBlocks' => $homeBlocks,
             'categories' => $categories,
             'recentProducts' => $recentProducts,
             'popularProductsRand' => $popularProductsRand,
             'featureProductsRand' => $featureProductsRand,
-
         ]);
     }
 

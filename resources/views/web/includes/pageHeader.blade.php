@@ -15,8 +15,8 @@
 
                 <!-- End of Dropdown Menu -->
                 <span class="divider d-lg-show"></span>
-                <a href="" class="d-lg-show">Blog</a>
-                <a href="" class="d-lg-show">Contact Us</a>
+                <a href="{{route('Blog.Page')}}" class="d-lg-show">Blog</a>
+                <a href="{{route('Contact.Us')}}" class="d-lg-show">Contact Us</a>
 
                 @if(session()->get('user') == NULL)
                     <a href="{{route('Customer.LoginPage')}}" class="d-lg-show login"><i
@@ -44,20 +44,6 @@
                 </a>
                 <form method="get" action="{{route('Product.Search')}}"
                       class="header-search hs-expanded hs-round d-none d-md-flex input-wrapper" role="search">
-                    <div class="select-box">
-                        <select id="category" name="category">
-                            <option value="">All Categories</option>
-                            <option value="4">Fashion</option>
-                            <option value="5">Furniture</option>
-                            <option value="6">Shoes</option>
-                            <option value="7">Sports</option>
-                            <option value="8">Games</option>
-                            <option value="9">Computers</option>
-                            <option value="10">Electronics</option>
-                            <option value="11">Kitchen</option>
-                            <option value="12">Clothing</option>
-                        </select>
-                    </div>
                     <input type="text" class="form-control" name="search" id="search" placeholder="Search in..."
                            required />
                     <button class="btn btn-search" type="submit"><i class="w-icon-search"></i>

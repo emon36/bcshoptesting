@@ -74,7 +74,71 @@
                 </div>
             </div>
             <!-- End of Iocn Box Wrapper -->
+            @if($mostSellingProduct)
+            <div class="row deals-wrapper appear-animate mb-8">
+                <div class="col-lg-12 mb-12">
+                    <div class="widget widget-products widget-products-bordered h-100">
+                        <div class="widget-body br-sm h-100">
+                            <h4 class="title-sm title-underline font-weight-bolder ls-normal mb-2">Best
+                                Selling Products</h4>
+                            <div class="swiper">
+                                <div class="swiper-container swiper-theme nav-top" data-swiper-options="{
+                                        'slidesPerView': 1,
+                                        'spaceBetween': 20,
+                                        'breakpoints': {
+                                            '576': {
+                                                'slidesPerView': 2
+                                            },
+                                            '768': {
+                                                'slidesPerView': 3
+                                            },
+                                            '992': {
+                                                'slidesPerView': 1
+                                            }
+                                        }
+                                    }">
+                                    <div class="swiper-wrapper row cols-lg-1 cols-md-3">
+                                        <div class="swiper-slide product-widget-wrap row">
+                                            @foreach($mostSellingProduct as $product)
+                                            <div class="product bb-no col-md-2 col-lg-2">
+                                                <figure class="product-media">
+                                                    <a href="{{route('productSingleView', $product->slug)}}">
+                                                        <img class="Top20Image" src="{{asset('uploads/images/products/'.$product->fImage->image)}}" alt="Product"
+                                                             width="216" height="243" />
+                                                    </a>
+                                                </figure>
+                                                <div class="mt-20">
+                                                    <h4 class="product-name">
+                                                        <a href="">{{$product->title}}</a>
+                                                    </h4>
+                                                    <div class="ratings-container">
+                                                        <div class="ratings-full">
+                                                            <span class="ratings" style="width: 60%;"></span>
+                                                            <span class="tooltiptext tooltip-top"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-price">
+                                                        @if($product->discount != NULL)
+                                                            <ins class="new-price">{{$product->current_selling_price/100}}৳</ins>
+                                                            <del class="old-price">{{$product->old_price/100}}৳</del>
+                                                        @else
+                                                            <ins class="new-price">{{$product->current_selling_price/100}}৳</ins>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @else
+            @endif
 
             <!-- End of Deals Wrapper -->
         </div>
@@ -1076,6 +1140,15 @@
                                 <div class="product-details">
                                     <h4 class="product-name"><a href="{{route('productSingleView', $product->slug)}}">{{$product->title}}</a>
                                     </h4>
+                                    <?php
+                                    $reviews = \App\Models\Review::where('product_id', $product->id)->pluck('star_rating'); // get all ratings for a specific product
+                                    ?>
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width: 60%;"></span>
+                                            <span class="tooltiptext tooltip-top">{{$reviews}}</span>
+                                        </div>
+                                    </div>
 
                                     <div class="product-price">
                                         @if($product->discount != NULL)
@@ -1278,7 +1351,55 @@
                     @endforeach
                 @else
             @endif
+
+                <div class="post-wrapper appear-animate mb-4">
+                    <div class="title-link-wrapper pb-1 mb-4">
+                        <h2 class="title ls-normal mb-0">From Our Blog</h2>
+                        <a href="" class="font-weight-bold font-size-normal">View All Articles</a>
+                    </div>
+                    <div class="swiper">
+                        <div class="swiper-container swiper-theme" data-swiper-options="{
+                            'slidesPerView': 1,
+                            'spaceBetween': 20,
+                            'breakpoints': {
+                                '576': {
+                                    'slidesPerView': 2
+                                },
+                                '768': {
+                                    'slidesPerView': 3
+                                },
+                                '992': {
+                                    'slidesPerView': 4
+                                }
+                            }
+                        }">
+                            <div class="swiper-wrapper row cols-lg-4 cols-md-3 cols-sm-2 cols-1">
+                                @foreach($blogs as $blog)
+                                <div class="swiper-slide post text-center overlay-zoom">
+                                    <figure class="post-media br-sm">
+                                        <a href="{{route('Blog.View', $blog->id)}}">
+                                            <img src ="{{asset('uploads/images/blog/'.$blog->image)}}" alt="Post" width="280"
+                                                 height="180" style="background-color: #4b6e91;" />
+                                        </a>
+                                    </figure>
+                                    <div class="post-details">
+                                        <div class="post-meta">
+                                            - <a href="#" class="post-date mr-0">{{$blog->created_at->format('d-m-Y')}}</a>
+                                        </div>
+                                        <h4 class="post-title"><a href="">{{$blog->title}}</a>
+                                        </h4>
+                                        <a href="{{route('Blog.View', $blog->id)}}" class="btn btn-link btn-dark btn-underline">Read
+                                            More<i class="w-icon-long-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
         </div>
+
 
             <!-- End of Banner Fashion -->
     </main>
