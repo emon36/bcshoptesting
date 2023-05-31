@@ -7732,19 +7732,19 @@ textarea {
 .select-menu select:focus {
   outline: none;
 }
-.select-box::before,
-.select-menu::before {
-  content: "";
-  font-family: "Wolmart";
-  font-size: 9px;
-  font-weight: 600;
-  line-height: 1;
-  position: absolute;
-  right: 2rem;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-}
+/*.select-box::before,*/
+/*.select-menu::before {*/
+/*  content: "";*/
+/*  font-family: "Wolmart";*/
+/*  font-size: 9px;*/
+/*  font-weight: 600;*/
+/*  line-height: 1;*/
+/*  position: absolute;*/
+/*  right: 2rem;*/
+/*  top: 50%;*/
+/*  -webkit-transform: translateY(-50%);*/
+/*          transform: translateY(-50%);*/
+/*}*/
 
 .select-box option {
   font-size: 1.2rem;
@@ -20535,11 +20535,11 @@ aside .sp-sidebar-banner span {
 .toolbox .select-box {
   color: #333;
 }
-.toolbox .select-box::before {
-  font-size: 1.1rem;
-  right: 1rem;
-  margin-top: 0.1rem;
-}
+/*.toolbox .select-box::before {*/
+/*  font-size: 1.1rem;*/
+/*  right: 1rem;*/
+/*  margin-top: 0.1rem;*/
+/*}*/
 .toolbox select {
   max-width: none;
   width: 15.4rem;

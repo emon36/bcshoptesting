@@ -198,23 +198,6 @@
                     <span class="menu-arrow"></span>
                 </a>
 
-            <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarBlog" aria-expanded="false" aria-controls="sidebarProjects" class="side-nav-link">
-                    <i class="uil-pen"></i>
-                    <span> Blog </span>
-                    <span class="menu-arrow"></span>
-                </a>
-                <div class="collapse" id="sidebarBlog">
-                    <ul class="side-nav-second-level">
-                        <li>
-                            <a href="{{route('InAdmin.Blog.CreatePage')}}">Blog Create</a>
-                        </li>
-                        <li>
-                            <a href="{{route('InAdmin.Blog.List')}}">All Blogs</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
                 <div class="collapse" id="sidebarProjects3">
                     <ul class="side-nav-second-level">
 
@@ -233,12 +216,47 @@
                                     </li>
                                 </ul>
 
-
                             </div>
                         </li>
 
                         <li>
                             <a href="{{route('InAdmin.Announcement')}}">Announcement Setup</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="side-nav-item">
+                <a data-bs-toggle="collapse" href="#sidebarBlog" aria-expanded="false" aria-controls="sidebarProjects" class="side-nav-link">
+                    <i class="uil-card-atm"></i>
+                    <span> Coupon </span>
+                    <span class="menu-arrow"></span>
+                </a>
+                <div class="collapse" id="sidebarBlog">
+                    <ul class="side-nav-second-level">
+                        <li>
+                            <a href="{{route('InAdmin.Coupon.CreatePage')}}">Coupon Create</a>
+                        </li>
+                        <li>
+                            <a href="{{route('InAdmin.Blog.List')}}">All Coupons</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="side-nav-item">
+                <a data-bs-toggle="collapse" href="#sidebarBlog" aria-expanded="false" aria-controls="sidebarProjects" class="side-nav-link">
+                    <i class="uil-pen"></i>
+                    <span> Blog </span>
+                    <span class="menu-arrow"></span>
+                </a>
+                <div class="collapse" id="sidebarBlog">
+                    <ul class="side-nav-second-level">
+                        <li>
+                            <a href="{{route('InAdmin.Blog.CreatePage')}}">Blog Create</a>
+                        </li>
+                        <li>
+                            <a href="{{route('InAdmin.Blog.List')}}">All Blogs</a>
                         </li>
                     </ul>
                 </div>

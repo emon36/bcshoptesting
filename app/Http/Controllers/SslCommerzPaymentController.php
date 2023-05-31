@@ -251,9 +251,7 @@ class SslCommerzPaymentController extends Controller
         #Received all the payement information from the gateway
         if ($request->input('tran_id')) #Check transation id is posted or not.
         {
-
             $tran_id = $request->input('tran_id');
-
             #Check order status in order tabel against the transaction id or order id.
             $order_details = DB::table('order_transactions')
                 ->where('transaction_id', $tran_id)

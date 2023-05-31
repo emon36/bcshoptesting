@@ -79,8 +79,11 @@
                 <div class="col-lg-12 mb-12">
                     <div class="widget widget-products widget-products-bordered h-100">
                         <div class="widget-body br-sm h-100">
-                            <h4 class="title-sm title-underline font-weight-bolder ls-normal mb-2">Best
-                                Selling Products</h4>
+                            <div class="d-flex justify-content-center">
+                                <h4 class="title-sm title-underline font-weight-bolder ls-normal mb-2">Best
+                                    Selling Products</h4>
+                            </div>
+
                             <div class="swiper">
                                 <div class="swiper-container swiper-theme nav-top" data-swiper-options="{
                                         'slidesPerView': 1,
@@ -1199,7 +1202,7 @@
                                              width="130" height="130" >
                                     </a>
                                     <div class="category-content">
-                                        <h4 class="category-name">{{$category->title}}</h4>
+                                        <h4 class="category-name" style="color: {{$category->title_color_code}}">{{$category->title}}</h4>
                                         <a href="{{route('Category.ProductView', ['id'=>$category->id, 'slug'=>$category->slug])}}"
                                            class="btn btn-primary btn-link btn-underline">Shop
                                             Now</a>
@@ -1214,13 +1217,13 @@
 
         <div class="container">
 
-            <div class="row category-cosmetic-lifestyle appear-animate mb-5">
+            <div class="row category-cosmetic-lifestyle appear-animate  mb-5">
                 <?php
                 $banner = \App\Models\Banner::where('banner_type', 'Main Section Banner')->where('status', 'Active')->take(2)->get();
                 ?>
                 @if(isset($banner))
                     @foreach($banner as $row)
-                <div class="col-md-6 mb-4">
+                <div class="col-md-6 mt-5 mb-4">
                     <div class="banner banner-fixed category-banner-1 br-xs">
                         <a href="{{$row->url}}">
                             <figure>
@@ -1241,14 +1244,13 @@
                     @else
                 @endif
             </div>
-            <!-- End of Category Cosmetic Lifestyle -->
-
-
             @foreach($homeBlocks as $row)
                 <div class="container">
                     <div class="product-wrapper-1 appear-animate mb-5">
                         <div class="title-link-wrapper pb-1 mb-4">
                             <h2 class="title ls-normal mb-0">{{$row->title}}</h2>
+                            <a href="{{$row->link}}" class="font-size-normal font-weight-bold ls-25 mb-0">More
+                                Products<i class="w-icon-long-arrow-right"></i></a>
                         </div>
                         <div class="row">
                             <div class="col-lg-3 col-sm-4 mb-4">
@@ -1256,9 +1258,8 @@
                                     background-color: #ebeced;">
                                     <div class="banner-content content-top">
                                         <hr class="banner-divider bg-dark mb-2">
-                                        <h3 class="banner-title font-weight-bolder ls-25 text-uppercase">
-                                            New Arrivals<br> <span
-                                                class="font-weight-normal text-capitalize">Collection</span>
+                                        <h3 class="banner-title font-weight-bolder ls-25 text-uppercase" style="color: {{$row->color_code}}">
+                                           {{$row->banner_title}}<br>
                                         </h3>
                                     </div>
                                 </div>

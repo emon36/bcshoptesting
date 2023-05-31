@@ -181,12 +181,13 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label  class="form-label">Featured Image</label>
+                            <label  class="form-label">Featured Image( Size 600*600 )</label>
                             <input type="file" name="featured_image" class="form-control"  onchange="loadFile(event)" >
                             <img id="output" class="mt-2" width="100" height="100"/>
+
                         </div>
                         <div class="mb-3 col-md-6">
-                            <label  class="form-label">Image</label>
+                            <label  class="form-label">Gallery Image ( Size 600*600 )</label>
                             <input type="file" name="image[]" id="file-input" class="form-control" required multiple >
                             <div  class="mt-2" id="preview"></div>
                         </div>

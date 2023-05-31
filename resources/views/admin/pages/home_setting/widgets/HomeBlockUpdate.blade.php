@@ -13,9 +13,22 @@
                 @include('admin.widgets.FlashMessage')
                 <form class="row g-3" method="POST" action="{{route('InAdmin.Home.Blocks.Product.UpdateProcess', $homeBlock->id)}}" enctype="multipart/form-data">
                     @csrf
-                    <div class="col-12">
+                    <div class="col-4">
                         <label class="form-label">Section Title</label>
                         <input type="text" name="title" value="{{$homeBlock->title}}" class="form-control" required>
+                    </div>
+                    <div class="col-4">
+                        <label class="form-label">Banner Title</label>
+                        <input type="text" name="banner_title"  value="{{$homeBlock->banner_title}}"class="form-control" >
+
+                    </div>
+                    <div class="col-4">
+                        <label for="example-color" class="form-label">Title Color</label>
+                        <input class="form-control" id="example-color" type="color" name="color_code" value="{{$homeBlock->color_code}}">
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Link</label>
+                        <input type="text" name="link" value="{{$homeBlock->link}}" class="form-control" required>
                     </div>
                     <div class="col-12">
                         <label class="form-label">Image</label>

@@ -13,35 +13,34 @@
             ?>
             @foreach($slider as $row)
             <div class="swiper-slide banner banner-fixed intro-slide "
-                 style="background-image: url(assets/images/demos/demo1/sliders/slide-1.jpg); background-color: #ebeef2;">
+                 style="background-image: url({{asset('uploads/images/banner/'.$row->bg_image)}}); background-color: #ebeef2;">
                 <div class="container">
                     <figure class="slide-image mhk-banner skrollable slide-animate">
                         <img src="{{asset('uploads/images/banner/'.$row->image)}}" alt="Banner"
                              >
                     </figure>
                     <div class="banner-content y-50 text-right">
-                        <h5 class="banner-subtitle font-weight-normal text-default ls-50 lh-1 mb-2 slide-animate"
+                        <h5 class="banner-subtitle font-weight-normal text-default ls-50 lh-1 mb-2 slide-animate" style="color: {{$row->color_code}}!important;;"
                             data-animation-options="{
                                     'name': 'fadeInRightShorter',
                                     'duration': '1s',
                                     'delay': '.2s'
                                 }">
-                            Welcome to  <span class="p-relative d-inline-block">Boichitro</span>
+                            <span class="p-relative d-inline-block">  {{$row->subtitle}}</span>
                         </h5>
-                        <h3 class="banner-title font-weight-bolder ls-25 lh-1 slide-animate"
+                        <h3 class="banner-title font-weight-bolder ls-25 lh-1 slide-animate"  style="color: {{$row->color_code}}!important;"
                             data-animation-options="{
                                     'name': 'fadeInRightShorter',
                                     'duration': '1s',
                                     'delay': '.4s'
                                 }">
-                            Traditional Cloths
+                            {{$row->title}}
                         </h3>
                         <p class="font-weight-normal text-default slide-animate" data-animation-options="{
                                     'name': 'fadeInRightShorter',
                                     'duration': '1s',
                                     'delay': '.6s'
                                 }">
-                            Sale up to <span class="font-weight-bolder text-secondary">30% OFF</span>
                         </p>
 
                         <a href="{{$row->url}}"

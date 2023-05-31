@@ -243,6 +243,9 @@
                             </li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="{{route('shop.page')}}">Shop</a>
+                    </li>
                     <li> <a href="{{route('Vendor.List')}}">
                             Stores
                         </a>

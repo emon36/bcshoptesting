@@ -13,8 +13,6 @@ use Request;
 class ProductController extends Controller
 {
 
-
-
     public function productSingleView($slug)
     {
         $product = Product::with('categories', 'images','vendor', 'attributes')->where('slug',$slug)->first();

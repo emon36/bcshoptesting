@@ -14,9 +14,13 @@
                 <form action="{{route('InAdmin.Category.UpdateProcess',$category->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row g-2">
-                        <div class="mb-3 col-md-12">
+                        <div class="mb-3 col-md-6">
                             <label  class="form-label">Title</label>
                             <input type="text" name="title" value="{{$category->title}}" class="form-control"  placeholder="Give a Category Title">
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="example-color" class="form-label">Title Color</label>
+                            <input class="form-control" id="example-color" type="color" name="title_color_code" value="{{$category->title_color_code}}">
                         </div>
                     </div>
 
@@ -43,7 +47,7 @@
                         </div>
 
                         <div class="mb-3 col-md-6">
-                            <label  class="form-label">Image</label>
+                            <label  class="form-label">Image ( Size 130*130 )</label>
                             <input type="file" name="image" class="form-control" >
                         </div>
 

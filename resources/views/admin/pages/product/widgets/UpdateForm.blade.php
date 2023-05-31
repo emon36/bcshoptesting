@@ -157,7 +157,7 @@
 
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label  class="form-label">Featured Image</label>
+                            <label  class="form-label">Featured Image ( Size 600*600 )</label>
                             <input type="file" name="featured_image" class="form-control" >
                             <?php
                             foreach ($product->images->where('position_key', 1) as $image)
@@ -168,7 +168,7 @@
                             <img src="{{asset('uploads/images/products/'.$featureImage)}}"  class="mt-2" height="100" width="100">
                         </div>
                         <div class="mb-3 col-md-6">
-                            <label  class="form-label">Gallery Image</label>
+                            <label  class="form-label">Gallery Image ( Size 600*600 )</label>
                             <input type="file" name="image[]" class="form-control" multiple >
                             <?php
                             foreach ($product->images->where('position_key', '!=' , 1) as $image)

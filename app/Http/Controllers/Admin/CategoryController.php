@@ -33,6 +33,7 @@ class CategoryController extends Controller
         $category->description = $request->description;
         $category->slug        = Str::slug($request->title).'-'.Str::random(4);
         $category->parent_id   = $request->parent_id;
+        $category->title_color_code   = $request->title_color_code;
         $category->created_by  = session()->get('user')->id;
 
 
@@ -97,6 +98,7 @@ class CategoryController extends Controller
         $category->title       = $request->title;
         $category->parent_id   = $request->parent_id;
         $category->description = $request->description;
+        $category->title_color_code   = $request->title_color_code;
         $category->created_by  = session()->get('user')->id;
 
         if ($request->hasFile('image')) {

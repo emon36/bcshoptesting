@@ -46,7 +46,7 @@
 
                         </div>
                         <div class="mb-3 col-md-4">
-                            <label  class="form-label">Applicant Image</label>
+                            <label  class="form-label">Applicant Image ( Size 300*300 )</label>
                             <input type="file" name="owner_image" class="form-control"  required="required">
                             @if ($errors->has('owner_image'))
                                 <span style="color: red">{{ $errors->first('owner_image') }}</span>
@@ -162,14 +162,14 @@
 
                     <div class="row g-2">
                         <div class="mb-3 col-md-6">
-                            <label  class="form-label">Shop logo</label>
+                            <label  class="form-label">Shop logo ( Size 80*80 )</label>
                             <input type="file"  class="form-control" name="shop_logo" required >
                             @if ($errors->has('shop_logo'))
                                 <span style="color: red">{{ $errors->first('shop_logo') }}</span>
                             @endif
                         </div>
                         <div class="mb-3 col-md-6">
-                            <label class="form-label">Shop Banner</label>
+                            <label class="form-label">Shop Banner ( Size 400*200 )</label>
                             <input type="file" class="form-control" name="shop_banner" required>
                             @if ($errors->has('shop_banner'))
                                 <span style="color: red">{{ $errors->first('shop_banner') }}</span>

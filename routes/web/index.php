@@ -83,9 +83,10 @@ Route::group(['middleware' => 'cart'], function(){
 
     //shop
 
-//    Route::get('/shop', [ShopController::class, 'shopPage'])->name('shop.page');
+    Route::get('/shop', [ShopController::class, 'shopPage'])->name('shop.page');
 
 
+});
 
     Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
     Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
@@ -98,10 +99,6 @@ Route::group(['middleware' => 'cart'], function(){
     Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
 
     Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
-
-
-
-});
 
   Route::get('/mobile/error/', [HomeController::class, 'mobileError'])->name('Mobile.Error');
 

@@ -22,6 +22,7 @@ class BannerController extends Controller
         $banner->subtitle = $request->subtitle;
         $banner->banner_type = $request->banner_type;
         $banner->url = $request->url;
+        $banner->color_code = $request->color_code;
 
         if ($request->hasFile('image')) {
 
@@ -29,6 +30,14 @@ class BannerController extends Controller
             $imageFileName = 'Banner'.'_'.Str::uuid() .'_'. time() .'_'. Str::uuid() .'.' . $imageFile->getClientOriginalExtension();
             $imageFile->move('uploads/images/banner/', $imageFileName);
             $banner->image = $imageFileName;
+        }
+
+        if ($request->hasFile('bg_image')) {
+
+            $imageFile = $request->file('bg_image');
+            $imageFileName = 'Banner'.'_'.Str::uuid() .'_'. time() .'_'. Str::uuid() .'.' . $imageFile->getClientOriginalExtension();
+            $imageFile->move('uploads/images/banner/', $imageFileName);
+            $banner->bg_image = $imageFileName;
         }
         $banner->save();
 
@@ -65,6 +74,7 @@ class BannerController extends Controller
         $banner->subtitle = $request->subtitle;
         $banner->banner_type = $request->banner_type;
         $banner->url = $request->url;
+        $banner->color_code = $request->color_code;
         if ($request->hasFile('image')) {
 
             $destination = 'uploads/images/banner/' .$banner->image;
@@ -76,6 +86,17 @@ class BannerController extends Controller
             $imageFileName = 'Banner'.'_'.Str::uuid() .'_'. time() .'_'. Str::uuid() .'.' . $imageFile->getClientOriginalExtension();
             $imageFile->move('uploads/images/banner/', $imageFileName);
             $banner->image = $imageFileName;
+        }
+        if ($request->hasFile('bg_image')) {
+
+            $destination = 'uploads/images/banner/' .$banner->bg_image;
+            if (file_exists($destination)) {
+                @unlink($destination);
+            }
+            $imageFile = $request->file('bg_image');
+            $imageFileName = 'Banner'.'_'.Str::uuid() .'_'. time() .'_'. Str::uuid() .'.' . $imageFile->getClientOriginalExtension();
+            $imageFile->move('uploads/images/banner/', $imageFileName);
+            $banner->bg_image = $imageFileName;
         }
         $banner->update();
         return redirect()->back()->with('success', 'Banner Uploaded Successfully');

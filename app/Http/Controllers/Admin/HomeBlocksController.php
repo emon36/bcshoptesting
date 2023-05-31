@@ -23,6 +23,9 @@ class HomeBlocksController extends Controller
 
         $homeBlock = new HomeBlock();
         $homeBlock->title = $request->title;
+        $homeBlock->banner_title = $request->banner_title;
+        $homeBlock->color_code = $request->color_code;
+        $homeBlock->link = $request->link;
         if ($request->hasFile('image')) {
             $imageFile = $request->file('image');
             $imageFileName = Str::uuid() .'_'. time() .'_'. Str::uuid() .'.' . $imageFile->getClientOriginalExtension();
@@ -52,6 +55,9 @@ class HomeBlocksController extends Controller
     {
         $homeBlock = HomeBlock::find($id);
         $homeBlock->title = $request->title;
+        $homeBlock->link = $request->link;
+        $homeBlock->banner_title = $request->banner_title;
+        $homeBlock->color_code = $request->color_code;
         if ($request->hasFile('image')) {
             $destination = 'uploads/images/section/' .$homeBlock->image;
             if (file_exists($destination)) {
